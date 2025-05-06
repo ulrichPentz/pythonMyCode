@@ -28,9 +28,9 @@ print("")
 ######################################
 print("Exercise 4.4")
 numbers = list(range(1, 1_000_001))
-# for number in numbers:
-#      print(number)
-# print("")
+for number in numbers:
+     print(number)
+print("")
 ######################################
 print("Exercise 4.5")
 numbers = list(range(1, 1_000_001))
