@@ -10,7 +10,7 @@ print(contents)
 lines=contents.splitlines()
 
 for line in lines:
-    print(line.replace(line))
+    print(line)
 
 print("")
 #############################################
