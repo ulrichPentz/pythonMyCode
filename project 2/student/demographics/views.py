@@ -33,9 +33,10 @@ def demographics(request):
 
 
 def delete_demographics(request, id):
-    queryset = Demographics.objects.get(id=id)
-    queryset.delete()
-    return redirect('/')
+    if request.method == 'GET':
+        queryset = Demographics.objects.get(id=id)
+        queryset.delete()
+        return redirect('/')
 
 
 def update_demographics(request, id):
@@ -46,19 +47,19 @@ def update_demographics(request, id):
 
         demographics_name = data.get('demographics_name')
         demographics_surname = data.get('demographics_surname')
-        demographics_image = request.FILES.get('demographics_image')
+        # demographics_image = request.FILES.get('demographics_image')
         demographics_address = data.get('demographics_address')
         demographics_age = data.get('demographics_age')
 
         queryset.demographics_name = demographics_name
         queryset.demographics_surname = demographics_surname
-        queryset.demographics_image = demographics_image
+        # queryset.demographics_image = demographics_image
         queryset.demographics_address = demographics_address
         queryset.demographics_age = demographics_age
         
 
-        if demographics_image:
-            queryset.demographics_image = demographics_image
+        # if demographics_image:
+        #     queryset.demographics_image = demographics_image
 
         queryset.save()
         return redirect('/')
